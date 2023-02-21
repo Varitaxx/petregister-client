@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="/webjars/bootstrap/5.2.3/css/bootstrap.min.css">
+
+</head>
+<body>
+
+<main class="container my-5">
+    <div class="row">
+        <div class="col">
+            <div class="alert alert-danger d-none" role="alert" id="login-alert">
+                Falsche Zugangsdaten
+            </div>
+
+            <form id="login-form" method="post" action="http://localhost:8080/api/v1/auth/login">
+                <div class="mb-3">
+                    <input type="text" name="email" id="email" class="form-control" placeholder="E-Mail">
+                </div>
+                <div class="mb-3">
+                    <input type="password" name="password" id="password" class="form-control" placeholder="Passwort">
+                </div>
+                <button type="submit" class="btn btn-success">Login</button>
+            </form>
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-info" id="btn-data">Daten abrufen</button>
+            <button type="button" class="btn btn-danger" id="btn-logout">Logout</button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>ChipID</th>
+                    <th>Name</th>
+                    <th>Typ</th>
+                    <th>Rasse</th>
+                    <th>Geburtsdatum</th>
+                    <th>Besitzer</th>
+                </tr>
+                </thead>
+                <tbody id="pet-tbl">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row my-5">
+        <div class="col-6">
+            <h2>Neues Tier anmelden</h2>
+            <form id="pet-form" method="post" action="http://localhost:8080/api/v1/pets">
+                <div class="mb-3">
+                    <label for="chipId">ChipID</label>
+                    <input type="text" name="chipId" id="chipId" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="name">Name</label>
+                    <input type="text" name="name" id="name" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="type">Typ</label>
+                    <select name="type" id="type" class="form-select">
+                        <option value="CAT">Katze</option>
+                        <option value="DOG">Hund</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="race">Rasse</label>
+                    <input type="text" name="race" id="race" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="birthDate">Geburtsdatum</label>
+                    <input type="text" name="birthDate" id="birthDate" class="form-control" placeholder="JJJJ-MM-TT">
+                </div>
+                <button type="submit" class="btn btn-success">Speichern</button>
+            </form>
+        </div>
+    </div>
+
+</main>
+
+<script src="/webjars/bootstrap/5.2.3/js/bootstrap.bundle.min.js"></script>
+<!--
+<script src="/webjars/jquery/3.6.3/jquery.min.js"></script>
+<script src="/js/basic-jq.js"></script>
+-->
+<script src="/js/basic.js"></script>
+</body>
+</html>
